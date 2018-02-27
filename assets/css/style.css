@@ -1,57 +1,63 @@
 
-body{
-	background-image: url(../images/x-wing.jpg);
-	background-size: cover;
-	background-color: #312c49;
-}
-.page-header{
-	margin: 0;
-	padding-bottom: 0;
-	background: #000;
-	opacity: 0.7;
-}
-.playground{
-	width: 100%;
-}
-.avatar{
-	width: 100px;
-	height: 150px;
-	background: #000;
-	color: white;
-	display: inline-block;
-	margin: 10px;
-	border: 2px solid #fff;
-	font-size: 12px;
-}
-.avatar img{
-	height: 100px;
-}
-.avatar:hover{
-	cursor: pointer;
-	transition: background-color .2 ease-in-out;
-	background-color: #fff;
-	transition: color .2 ease-in-out;
-	color: #000;
-	transition: border .2 ease-in-out;
-	border-color: #000;
-}
-.avatar-name, .avatar-hp{
-	margin: 0 auto;
+:root{
+	--main-text-color:#bf1915;
 }
 
-.selected-card{
-	background-color: #2f8636;
-	color: #fff;
+body{
+	background-image: url(../images/bg.jpg);
+	background-size: cover;
+	background-color: #312c49;
+	font-family: 'Maiden Orange', cursive;
+	font-size: 30px;
+	color: var(--main-text-color);
 }
-.enemy-card{
-	background-color: #af2020;
-	color: #fff;
+h1{
+	border-bottom: 2px solid var(--main-text-color);
+	text-align: center;
+	font-family: 'Fredericka the Great', cursive;
+	font-size: 80px;
+	padding: 5%;
+	text-shadow: 3px 3px 7px #333;
+	margin-bottom: 0;
 }
-#attackBtn, #restartBtn{
-	width: 100px;
-	margin: 10px;
+.timer{
+	font-size: 24px;
+	text-align: center;
 }
-#attack-detail{
-	background: #00000086;
-	color: #fff;
+.question{
+	 text-align: center;
+	 margin-top: 10px;
 }
+.option-group div{
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	box-sizing: border-box;
+	font-family: 'Farsan', cursive;
+}
+.option-group div:hover{
+	background: var(--main-text-color);
+	opacity: 0.7;
+	color: white;
+}
+.option-group{
+	border-top: 2px solid var(--main-text-color);
+	border-bottom: 2px solid var(--main-text-color);
+}
+#restartBtn{
+	display: block;
+	margin-top: 30px;
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 25px;
+}
+/* .single-page{
+	max-height: 720px;
+} */
+
+
+
+/* font-family: 'Fredericka the Great', cursive;
+font-family: 'Farsan', cursive;
+font-family: 'Maiden Orange', cursive; */

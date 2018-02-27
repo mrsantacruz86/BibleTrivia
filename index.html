@@ -4,49 +4,49 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Star Wars RPG!</title>
+    <title>Bible Trivia!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Latest compiled and minified CSS -->
+    <!-- Latest compiled and minified Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Farsan|Fredericka+the+Great|Maiden+Orange" rel="stylesheet">
 
-    <!-- Custon CSS and JS -->
+    <!-- Custon CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 </head>
 
 <body >
     
-    <div class="page-header">
-        <div id="logo" ><img src="assets/images/sign.jpg" height="100px" alt="Star Wars RPG!"></div>
-    </div>
-    <div class="container" id="playground">
-        <div class="col-md-6">
+    <div class="container single-page" id="playground">
+        <h1>Bible Trivia!</h1>
 
-            <h3>My Character</h3>
-            <div class="mySpace"></div>
+        <section  class="timer">
+            Time Remaining: <span class="countdown">30</span>s.
+        </section>
 
-            <h3>Enemies available to attack</h3>
-            <div class="characters"></div>
-        </div>
-        <div class="col-md-6">
-            <h3>Fight Section</h3>     
-            <button type="button" class="btn btn-large btn-block btn-danger" id="attackBtn">Attack!</button>
-            
-            <div class="defender-area"></div>
-            <p id="attack-detail"></p>
+        <section class="question">
+            Question
+        </section>
 
-            
-            <button hidden type="button" class="btn btn-large btn-block btn-primary" id="restartBtn">Restart!</button>
-            
+        <section class="option-group">
+            <div>Answer 1</div>
+            <div>Answer 2</div>
+            <div>Answer 3</div>
+            <div>Answer 4</div>
+        </section>
 
-        </div>
+
+        <button hidden type="button" class="btn btn-large btn-block btn-danger" id="restartBtn">Restart!</button>
     </div>
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <!-- Latest compiled and minified JavaScript -->
+    <!-- Latest compiled and minified Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    <!-- Custon Javascript containing game's logic, -->
     <script src="assets/javascript/game.js"></script>
 
 </body>
