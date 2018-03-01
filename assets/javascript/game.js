@@ -39,11 +39,15 @@ function generateQuestions(){
 // }
 
 
+// Functions to make the timer works.
+var gameCountdown = setInterval(displayTime())
+
+
 //Display the question
 function displayQuestion(q) {
-    var questionDisplay = $('.question'); 
-    questionDisplay.data('data',q);
-    questionDisplay.html(q.qText);
+    var $questionDisplay = $('.question'); 
+    $questionDisplay.data('data',q);
+    $questionDisplay.html(q.qText);
     
     for (var i = 0; i < 4; i++) {
         $(`#ans-${i}`).html(q.answer[i]);
@@ -56,12 +60,12 @@ $(document).ready(function() {
     displayQuestion(currentQuestion);
 
     $(".choice").click(function() {
-        var index = thi
-       if(currentQuestion.checkAnswer($this.data('data'))){
-            alert('Correct!!');
-        }else{
-            alert('Incorrect');
-        } 
+    //var d = this.data();
+    //    if(currentQuestion.checkAnswer($this.data('data'))){
+    //         alert('Correct!!');
+    //     }else{
+            alert(currentQuestion);
+    //     } 
     });
 
     // //Populate character's list
