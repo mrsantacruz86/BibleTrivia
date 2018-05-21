@@ -53,80 +53,86 @@ function displayQuestion(q) {
   }
 }
 
-function Countdown(initial, display){
+function Countdown(initial, display) {
   this.initial = initial;
-  this.start = function(){
-    var timer = setInterval(function(){
+  this.counter  = initial;
+  this.start = function () {
+    var timer = setInterval(function () {
 
       if (initial === 0) {
         clearInterval(timer);
         this.display("Time is over");
-      } else{
-        initial --;
+      } else {
+        initial--;
         this.display(initial)
       }
-    },1000);
+    }, 1000);
   },
-  this.stop = function(){
+    this.stop = function () {
 
-  },
-  this.reset = function(){
+    },
+    this.reset = function () {
 
-  },
-  this.display = function(text){
-    $(display).text(text);
+    },
+    this.display = function (text) {
+      $(display).text(text);
+    }
+}
+
+function currentQuestion(q){
+
+}
+
+function Game(qt,uid,questions,){
+  this.userId = userId;
+  this.counter = qt;
+  this.questions = questions;
+  this.currentQuestion = function currentQuestion(){
+
+  }
+  this.increaseRightScore = function(){
+
+  }
+  this.increaseRightScore = function(){
+
+  }
+  this.countdown = function (){
+
+  }
+  this.loadQuestion = function(){
+
+  }
+  this.nextQuestion = function(){
+
+  }
+  this.timeUp = function(){
+
+  }
+  this.results = function (){
+
+  }
+  this.clicked = function(){
+
+  }
+  this.asweredCorrectly(){
+    
+  }
+  this.asweredIncorrectly(){
+    
+  }
+  thi.reset = function(){
+
   }
 }
 
-function startGame(){
-  myTimer = new Countdown(20,".countdown");
-  myTimer.start();
-
-}
-
-function endGame(){
-  myTimer.start();
-  
-}
-
-function nextQuestion(){
-  myTimer.start();
-
-
-}
 
 
 // Script for the DOM Manipulation 
 $(document).ready(function () {
-  // Countdown
-  var timer = 10;
-  var gameCountdown = setInterval(function () {
-    timer--;
-    if (timer === 0) {
-      clearInterval(gameCountdown);
-      alert("perdiste el mio")
-    }
-    $('.countdown').text(timer);
-  }, 1000);
 
-  var i = 0;
-  displayQuestion(myQuiz[i]);
 
-  $(".choice").click(function () {
-    while (i < myQuiz.length) {
-      if ($(this).data('rightAnswer')) {
-        alert('Correct!!');
-        i++;
-        clearInterval(gameCountdown);
-        timer = 30;
-        displayQuestion(myQuiz[i]);
-        gameCountdown();
-      } else {
-        alert('Wrong!');
-        i++;
-      }
-    }
-  });
+  $(".choice").click();
+  
   $('#restartBtn').click(function () {
     timer = 30;
     i = 0;
