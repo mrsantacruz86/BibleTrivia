@@ -19,16 +19,34 @@
 
   <!-- Custon CSS -->
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/login.css" />
 </head>
 
 <body>
   <!-- The surrounding HTML is left untouched by FirebaseUI.
        Your app may use that space for branding, controls and other customizations.-->
-  <h1>Bible Trivia</h1>
-  <div id="firebaseui-auth-container"></div>
-  <div id="loader"><img src="./assets/images/loader.svg" alt="loader" width="70px"></div>
 
+  <div class="container single-page" id="playground">
+    <h1 class="game-title">Bible Trivia!</h1>
+
+    <section class="timer">
+      Time Remaining:
+      <span class="countdown">30</span>
+    </section>
+
+    <section class="question">
+      Question
+    </section>
+
+    <section class="option-group">
+      <div id="ans-0" class="choice"></div>
+      <div id="ans-1" class="choice"></div>
+      <div id="ans-2" class="choice"></div>
+      <div id="ans-3" class="choice"></div>
+    </section>
+
+
+    <button hidden type="button" class="btn btn-large btn-block btn-danger" id="restartBtn">Restart!</button>
+  </div>
   <!-- JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -38,7 +56,6 @@
 
   <!-- Custon Javascript containing game's logic, -->
   <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
-  <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
   <script src="assets/javascript/firebase.js"></script>
   <script src="assets/javascript/game.js"></script>
 

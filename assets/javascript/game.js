@@ -1,11 +1,11 @@
 //variable containing the current question 
 var currentQuestion;
 
-function Question(id, qText, choice, rightAnswer, picture) {
+function Question(id, qText, answers, rightAnswer, picture) {
   this.id = id;
   this.qText = qText;
   this.picture = picture;
-  this.choice = choice;
+  this.answers = answers;
   this.rightAnswer = rightAnswer;
   this.checkAnswer = function (answerNumber) {
     if (this.rightAnswer === answerNumber) {
@@ -40,22 +40,9 @@ myQuiz.push(new Question(3, "Who did God promised that one of his descendants wh
 shuffle(myQuiz);
 
 
-//Display the question
-function displayQuestion(q) {
-  var $questionDisplay = $('.question');
-  $questionDisplay.html(q.qText);
-
-  for (var i = 0; i < 4; i++) {
-    $(`#ans-${i}`).html(q.choice[i]);
-    if (q.rightAnswer === i) {
-      $(`#ans-${i}`).data('rightAnswer', true);
-    }
-  }
-}
-
 function Countdown(initial, display) {
   this.initial = initial;
-  this.counter  = initial;
+  this.counter = initial;
   this.start = function () {
     var timer = setInterval(function () {
 
@@ -79,48 +66,60 @@ function Countdown(initial, display) {
     }
 }
 
-function currentQuestion(q){
+function currentQuestion(q) {
 
 }
 
-function Game(qt,uid,questions,){
+function Game(qt, uid, questions, ) {
   this.userId = userId;
   this.counter = qt;
   this.questions = questions;
-  this.currentQuestion = function currentQuestion(){
+  this.currentQuestion = function currentQuestion() {
 
   }
-  this.increaseRightScore = function(){
+  this.increaseRightScore = function () {
 
   }
-  this.increaseWrongScore = function(){
+  this.increaseWrongScore = function () {
 
   }
-  this.countdown = function (){
+  this.countdown = function () {
 
   }
-  this.loadQuestion = function(){
+  this.loadQuestion = function () {
+    //Display the question
+    function displayQuestion(q) {
+      var $questionDisplay = $('.question');
+      $questionDisplay.html(q.qText);
+
+      for (var i = 0; i < 4; i++) {
+        $(`#ans-${i}`).html(q.answers[i]);
+        if (q.rightAnswer === i) {
+          $(`#ans-${i}`).data('rightAnswer', true);
+        }
+      }
+    }
 
   }
-  this.nextQuestion = function(){
+  this.nextQuestion = function () {
 
   }
-  this.timeUp = function(){
+  this.timeUp = function () {
 
   }
-  this.results = function (){
+  this.results = function () {
 
   }
-  this.clicked = function(){
+  this.clicked = function () {
 
   }
   this.asweredCorrectly(){
-    
+
   }
   this.asweredIncorrectly(){
-    
+
   }
-  thi.reset = function(){
+  thi.reset = function () {
 
   }
 }
@@ -132,7 +131,7 @@ $(document).ready(function () {
 
 
   $(".choice").click();
-  
+
   $('#restartBtn').click(function () {
     timer = 30;
     i = 0;

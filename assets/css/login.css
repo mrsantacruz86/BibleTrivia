@@ -1,0 +1,47 @@
+.firebaseui-container{
+  box-shadow: none;
+  background: transparent;
+}
+.firebaseui-title{
+  font-family: 'Maiden Orange';
+  color: var(--main-text-color);
+  border: none;
+  text-shadow: none;
+  font-size: 30px;
+  text-align: center;
+}
+
+.mdl-button--raised.mdl-button--colored{
+  background-color: var(--main-text-color);
+  margin: 0 auto;
+}
+.mdl-button--raised.mdl-button--colored:hover{
+  background-color: #f53434;
+}
+.firebaseui-textfield.mdl-textfield .firebaseui-label::after {
+  background-color: var(--main-text-color);
+}
+.firebaseui-form-actions{
+  text-align: center;
+}
+input.firebaseui-input, input.firebaseui-input-invalid{
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Farsan', cursive;
+  color: var(--main-text-color);
+}
+.firebaseui-error-wrapper{
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Farsan', cursive;
+  color: var(--main-text-color);
+}
+.firebaseui-label {
+  color: var(--main-text-color);
+}
+.firebaseui-label::after{
+  color: var(--main-text-color);
+}
+.firebaseui-form-links{
+  display: none;
+}
