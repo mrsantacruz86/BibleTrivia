@@ -93,7 +93,7 @@ function Game(qt,uid,questions,){
   this.increaseRightScore = function(){
 
   }
-  this.increaseRightScore = function(){
+  this.increaseWrongScore = function(){
 
   }
   this.countdown = function (){

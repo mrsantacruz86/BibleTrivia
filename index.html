@@ -14,11 +14,19 @@
   <!-- Google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Farsan|Fredericka+the+Great|Maiden+Orange" rel="stylesheet">
 
+  <!-- authentication stiles -->
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+
   <!-- Custon CSS -->
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 </head>
 
 <body>
+  <!-- The surrounding HTML is left untouched by FirebaseUI.
+       Your app may use that space for branding, controls and other customizations.-->
+  <h1>Welcome to My Awesome App</h1>
+  <div id="firebaseui-auth-container"></div>
+  <div id="loader">Loading...</div>
 
   <div class="container single-page" id="playground">
     <h1>Bible Trivia!</h1>
@@ -51,7 +59,8 @@
 
   <!-- Custon Javascript containing game's logic, -->
   <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
-  <script src="assets/javascript/game.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+  <script src="assets/javascript/firebase.js"></script>
   <script src="assets/javascript/game.js"></script>
 
 
