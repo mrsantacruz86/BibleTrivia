@@ -66,10 +66,6 @@ function Countdown(initial, display) {
     }
 }
 
-function currentQuestion(q) {
-
-}
-
 function Game(qt, uid, questions, ) {
   this.userId = userId;
   this.counter = qt;
@@ -86,19 +82,12 @@ function Game(qt, uid, questions, ) {
   this.countdown = function () {
 
   }
-  this.loadQuestion = function () {
+  this.loadQuestion = function (question) {
     //Display the question
-    function displayQuestion(q) {
-      var $questionDisplay = $('.question');
-      $questionDisplay.html(q.qText);
+    var $questionDisplay = $('<div class="question">');
+    $questionDisplay.html("this is a test");
+    $("#diplayQuestion").html("This is a test question")
 
-      for (var i = 0; i < 4; i++) {
-        $(`#ans-${i}`).html(q.answers[i]);
-        if (q.rightAnswer === i) {
-          $(`#ans-${i}`).data('rightAnswer', true);
-        }
-      }
-    }
 
   }
   this.nextQuestion = function () {

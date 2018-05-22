@@ -45,3 +45,8 @@ input.firebaseui-input, input.firebaseui-input-invalid{
 .firebaseui-form-links{
   display: none;
 }
+#loader{
+  width: 40px;
+  margin:  0 auto;
+  color: var(--main-text-color);
+}
