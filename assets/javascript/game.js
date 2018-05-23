@@ -32,12 +32,25 @@ function shuffle(a) {
 }
 //Method to generate the questions
 
-var myQuiz = [];
-myQuiz.push(new Question(0, "How many days did the creation last", [6, 5, 10, 7], 0, "img0.jpg"));
-myQuiz.push(new Question(1, "In the book of Exodus God send a man to deliver the Hebrews from slavery: that man was ", ["Jesus", "Noah", "Moses", "Abraham"], 2, "img1.jpg"));
-myQuiz.push(new Question(2, "The 10 Commandments were given by God to Moses on the Mount:", ["Carmel", "Hermon", "Zion", "Sinai"], 3, "img2.jpg"));
-myQuiz.push(new Question(3, "Who did God promised that one of his descendants whould reing forever", ["Samuel", "David", "Darius", "Herod"], 1, "img3.jpg"));
-shuffle(myQuiz);
+var questionsRef = db.collection('questions');
+
+function getquestionData(i, cb) {
+  var questionList = [];
+  questionsRef.get().then(function (querySnapshot) {
+    querySnapshot.forEach(function (doc) {
+      questionList.push(doc.data());
+    });
+    // var changedOrder = shuffle(questionList);
+    cb(questionList[i]);
+  });
+}
+
+
+// myQuiz.push(new Question(0, "How many days did the creation last", [6, 5, 10, 7], 0, "img0.jpg"));
+// myQuiz.push(new Question(1, "In the book of Exodus God send a man to deliver the Hebrews from slavery: that man was ", ["Jesus", "Noah", "Moses", "Abraham"], 2, "img1.jpg"));
+// myQuiz.push(new Question(2, "The 10 Commandments were given by God to Moses on the Mount:", ["Carmel", "Hermon", "Zion", "Sinai"], 3, "img2.jpg"));
+// myQuiz.push(new Question(3, "Who did God promised that one of his descendants whould reing forever", ["Samuel", "David", "Darius", "Herod"], 1, "img3.jpg"));
+// shuffle(myQuiz);
 
 
 function Countdown(initial, display) {
@@ -66,66 +79,82 @@ function Countdown(initial, display) {
     }
 }
 
-function Game(qt, uid, questions, ) {
-  this.userId = userId;
+function Game(qt, uid) {
+  this.userId = uid;
   this.counter = qt;
-  this.questions = questions;
-  this.currentQuestion = function currentQuestion() {
+  // this.currentQuestion = function () {
 
-  }
-  this.increaseRightScore = function () {
+  // }
+  // this.increaseRightScore = function () {
 
-  }
-  this.increaseWrongScore = function () {
+  // }
+  // this.increaseWrongScore = function () {
 
-  }
-  this.countdown = function () {
+  // }
+  // this.countdown = function () {
 
-  }
-  this.loadQuestion = function (question) {
+  // }
+  this.loadQuestion = function (q) {
     //Display the question
-    var $questionDisplay = $('<div class="question">');
-    $questionDisplay.html("this is a test");
-    $("#diplayQuestion").html("This is a test question")
+    $("#diplayQuestion").html(q.text);
+
+    for (const key in q.answers) {
+      if (q.answers.hasOwnProperty(key)) {
+        const answer = q.answers[key];
+        var $answer = $('<div class="choice">');
+        $answer.attr("id", "answer-" + key);
+        if (key === q.rightAnswer) {
+          $answer.attr("isCorrect", true);
+        }
+        $answer.html(answer);
+        $answer.appendTo('#option-group');
+      }
+
+    }
 
 
   }
-  this.nextQuestion = function () {
+  // this.nextQuestion = function () {
 
-  }
-  this.timeUp = function () {
+  // }
+  // this.timeUp = function () {
 
-  }
-  this.results = function () {
+  // }
+  // this.results = function () {
 
-  }
-  this.clicked = function () {
+  // }
+  // this.clicked = function () {
 
-  }
-  this.asweredCorrectly(){
+  // }
+  // this.asweredCorrectly = function () {
 
-  }
-  this.asweredIncorrectly(){
+  // }
+  // this.asweredIncorrectly = function () {
 
-  }
-  thi.reset = function () {
+  // }
+  // thi.reset = function () {
 
-  }
+  // }
 }
 
 
 
 // Script for the DOM Manipulation 
 $(document).ready(function () {
-
-
-  $(".choice").click();
+  var game = new Game(30, 123);
+  getquestionData(4, game.loadQuestion);
+  $(".option-group").delegate('.choice', 'click', function(){
+    if($(this).attr("isCorrect")){
+      alert("It is correct!")
+    } else{
+      alert("It is Wrong!")
+    }
+  });
 
   $('#restartBtn').click(function () {
-    timer = 30;
-    i = 0;
-    displayQuestion(myQuiz[i]);
+
   })
+
 
 });
 
