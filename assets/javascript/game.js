@@ -1,18 +1,16 @@
-//variable containing the current question 
-var currentQuestion;
+//The page will not load if the user is not authenticated 
+// if(!user){
+//   $.holdReady(true);
+//   var currentQuestion;
+// }
 
-function Question(id, qText, answers, rightAnswer, picture) {
+//Method to generate the questions
+function Question(id, text, answers, rightAnswer, picture) {
   this.id = id;
-  this.qText = qText;
+  this.text = text;
   this.picture = picture;
   this.answers = answers;
   this.rightAnswer = rightAnswer;
-  this.checkAnswer = function (answerNumber) {
-    if (this.rightAnswer === answerNumber) {
-      return true;
-    }
-    return false;
-  }
 }
 
 //Shuffle the array of question,
@@ -30,7 +28,6 @@ function shuffle(a) {
   }
   return a;
 }
-//Method to generate the questions
 
 var questionsRef = db.collection('questions');
 
@@ -44,14 +41,6 @@ function getquestionData(i, cb) {
     cb(questionList[i]);
   });
 }
-
-
-// myQuiz.push(new Question(0, "How many days did the creation last", [6, 5, 10, 7], 0, "img0.jpg"));
-// myQuiz.push(new Question(1, "In the book of Exodus God send a man to deliver the Hebrews from slavery: that man was ", ["Jesus", "Noah", "Moses", "Abraham"], 2, "img1.jpg"));
-// myQuiz.push(new Question(2, "The 10 Commandments were given by God to Moses on the Mount:", ["Carmel", "Hermon", "Zion", "Sinai"], 3, "img2.jpg"));
-// myQuiz.push(new Question(3, "Who did God promised that one of his descendants whould reing forever", ["Samuel", "David", "Darius", "Herod"], 1, "img3.jpg"));
-// shuffle(myQuiz);
-
 
 function Countdown(initial, display) {
   this.initial = initial;

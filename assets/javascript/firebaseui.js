@@ -1,5 +1,9 @@
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
+function passUserToSessionStorage(user){
+  sessionStorage.setItem("user", user);
+  console.log("User profile has been places in sessionStorage");
+}
 
 var uiConfig = {
   callbacks: {
@@ -7,6 +11,9 @@ var uiConfig = {
       // User successfully signed in.
       // Return type determines whether we continue the redirect automatically
       // or whether we leave that to developer to handle.
+      var user = firebase.auth().currentUser;
+      passUserToSessionStorage(user.uid);
+      console.log(authResult, redirectUrl);
       return true;
     },
     uiShown: function () {
@@ -17,7 +24,7 @@ var uiConfig = {
   },
   // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
   signInFlow: 'popup',
-  signInSuccessUrl: 'game.html',
+  signInSuccessUrl: './game.html',
   signInOptions: [
     // Leave the lines as is for the providers you want to offer your users.
     firebase.auth.EmailAuthProvider.PROVIDER_ID,
